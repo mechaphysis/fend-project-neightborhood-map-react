@@ -1,7 +1,15 @@
 {
-  "main.css": "static/css/main.976e8a1d.css",
-  "main.css.map": "static/css/main.976e8a1d.css.map",
-  "main.js": "static/js/main.95230808.js",
-  "main.js.map": "static/js/main.95230808.js.map",
-  "static/media/hamburguer-icon.svg": "static/media/hamburguer-icon.1b7e460e.svg"
+  "files": {
+    "main.css": "/fend-project-neightborhood-map-react/static/css/main.34623f48.chunk.css",
+    "main.js": "/fend-project-neightborhood-map-react/static/js/main.3558d937.chunk.js",
+    "main.js.map": "/fend-project-neightborhood-map-react/static/js/main.3558d937.chunk.js.map",
+    "runtime~main.js": "/fend-project-neightborhood-map-react/static/js/runtime~main.202262ed.js",
+    "runtime~main.js.map": "/fend-project-neightborhood-map-react/static/js/runtime~main.202262ed.js.map",
+    "static/js/2.8fe1186e.chunk.js": "/fend-project-neightborhood-map-react/static/js/2.8fe1186e.chunk.js",
+    "static/js/2.8fe1186e.chunk.js.map": "/fend-project-neightborhood-map-react/static/js/2.8fe1186e.chunk.js.map",
+    "index.html": "/fend-project-neightborhood-map-react/index.html",
+    "precache-manifest.d401d254d4189806ad7c343f8ce140d4.js": "/fend-project-neightborhood-map-react/precache-manifest.d401d254d4189806ad7c343f8ce140d4.js",
+    "service-worker.js": "/fend-project-neightborhood-map-react/service-worker.js",
+    "static/css/main.34623f48.chunk.css.map": "/fend-project-neightborhood-map-react/static/css/main.34623f48.chunk.css.map"
+  }
 }
