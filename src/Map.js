@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class Map extends Component {
   render () {
     return (
-      //TODO: fill this
+      <main>
+        The Google map goes here!
+      </main>
     );
   }
 }
