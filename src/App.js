@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import hamburguer from './hamburguer-icon.svg'
 import logo from './logo.svg';
 import './App.css';
 import Map from './Map.js'
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={hamburguer} className="App-logo" alt="logo" />
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <Map/>
