@@ -14,8 +14,10 @@ class App extends Component {
           <img src={hamburguer} className="App-logo" alt="logo" />
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
-        <Map/>
-        <Search/>
+        <main className="main-content">
+          <Search/>
+          <Map/>
+        </main>
       </div>
     );
   }

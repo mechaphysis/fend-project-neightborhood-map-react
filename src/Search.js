@@ -7,6 +7,7 @@ class Search extends Component {
         <input type="text" role="search" placeholder="Filter points of interest by name"/>
         <div className="search-poi-results">
           <ol className="poi-list"></ol>
+            <li>This is a test element</li>
         </div>
       </div>
     );

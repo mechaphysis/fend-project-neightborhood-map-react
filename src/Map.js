@@ -10,8 +10,9 @@ const mapOptions = {
   zoom: 13
 }
 // TODO: FIX THIS STYLE TO FIT INTO App.css
-const MAP_STYLES = {
+const mapStyle = {
   height: '450px',
+  width: '100%',
   margin: '0',
   padding: '0'
 }
@@ -29,9 +30,9 @@ class Map extends Component {
 }
   render () {
     return (
-      <main className="map">
-      <div ref="map" style={MAP_STYLES}></div>
-      </main>
+      <div className="map">
+        <div ref="map" style={mapStyle}></div>
+      </div>
     );
   }
 }
