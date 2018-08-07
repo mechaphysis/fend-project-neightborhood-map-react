@@ -7,6 +7,16 @@ import Search from './Search.js'
 
 class App extends Component {
 
+  state = {
+    pois: [
+      <li>Pena dos namorados</li>,
+      <li>Pena do Equilibrio</li>,
+      <li>Rio Uma</li>,
+      <li>Castelo de Vilasobroso</li>,
+      <li>Coto do Castro</li>,
+    ]
+  }
+
   render() {
     return (
       <div className="App">
@@ -15,7 +25,9 @@ class App extends Component {
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
-          <Search/>
+          <Search
+            pois={this.state.pois}
+          />
           <Map/>
         </main>
       </div>
