@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Map from './Map.js'
 import Search from './Search.js'
+import DataAPI from './DataAPI.js'
 
 class App extends Component {
 /* inside the Parent state we gonna pass the array of POI (POI stands for Point of Interests)
@@ -70,6 +71,7 @@ class App extends Component {
             clickedMarker={ this.state.clickedMarker }
           />
         </main>
+        <DataAPI/>
       </div>
     );
   }
