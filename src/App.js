@@ -19,20 +19,6 @@ class App extends Component {
     center: { lat: 42.24059889999999, lng: -8.7207268 },
     zoom: 13
   }
-/* As stated in: https://tomchentw.github.io/react-google-maps/
- * We are also going to need a handler method for clicks on Markers:
- * By passing as center value the lat and lng of the marker the center
- * of our map will switch to be the location of the clicked Marker
- * We also increment a bit the value for zoom, so it will zoom in
- * the marker area
- */
-
- handleMarkerClick = (evt, latLng, marker) => {
-  this.setState({
-    clickedMarker : marker,
-    center : latLng,
-    zoom : 20 })
-}
 
 /* We load and fetch asynchronously the list of POIs by
  * wrapping the fetching inside componentDidMount()
@@ -43,6 +29,31 @@ class App extends Component {
  */
   }
 
+  /* As stated in: https://tomchentw.github.io/react-google-maps/
+  * We are also going to need a handler method for clicks on Markers:
+  * By passing as center value the lat and lng of the marker the center
+  * of our map will switch to be the location of the clicked Marker
+  * We also increment a bit the value for zoom, so it will zoom in
+  * the marker area
+  */
+
+  handleMarkerClick = (evt, latLng, marker) => {
+    this.setState({
+      clickedMarker : marker,
+      center : latLng,
+      zoom : 20 })
+    }
+  /* The method below will reset state to default after closing
+   * an infoWindow
+   */
+  handleInfoWindowEvent = (e) => {
+    this.setState({
+      clickedMarker: 0,
+      center: { lat: 42.24059889999999, lng: -8.7207268 },
+      zoom: 13
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -51,11 +62,11 @@ class App extends Component {
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
-          <Map onMarkerClick ={ this.handleMarkerClick}
-            center={this.state.center}
-            zoom={this.state.zoom}
-            poisArray={this.state.poisArray}
-            clickedMarker={this.state.clickedMarker}
+          <Map onMarkerClickEvent ={ this.handleMarkerClick }
+            center={ this.state.center }
+            zoom={ this.state.zoom }
+            poisArray={ this.state.poisArray }
+            clickedMarker={ this.state.clickedMarker }
           />
         </main>
       </div>
