@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Map from './Map.js'
 import Search from './Search.js'
-import DataAPI from './DataAPI.js'
+import * as DataAPI from './DataAPI'
 
 class App extends Component {
 /* inside the Parent state we gonna pass the array of POI (POI stands for Point of Interests)
@@ -15,7 +15,7 @@ class App extends Component {
  * is triggered in either of them.
  */
   state = {
-    poisArray: [],
+    locations: [],
     clickedMarker: 0,
     center: { lat: 42.24059889999999, lng: -8.7207268 },
     zoom: 13
@@ -25,9 +25,9 @@ class App extends Component {
  * wrapping the fetching inside componentDidMount()
  */
   componentDidMount() {
-/* TODO: fetch and load inside poisArray the list of historic locations (POIs)
- * using FourSquareAPI
- */
+    DataAPI.fetchLocations().then( locations => {
+      this.setState({ locations })
+    })
   }
 
   /* As stated in: https://tomchentw.github.io/react-google-maps/
@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.locations)
     return (
       <div className="App">
         <header className="App-header">
@@ -67,11 +68,10 @@ class App extends Component {
           <Map handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
-            poisArray={ this.state.poisArray }
+            locations={ this.state.locations }
             clickedMarker={ this.state.clickedMarker }
           />
         </main>
-        <DataAPI/>
       </div>
     );
   }
