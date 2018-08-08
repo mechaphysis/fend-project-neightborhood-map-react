@@ -6,7 +6,7 @@ const apiKey = {
 }
 
 const mapOptions = {
-  center: {lat:42.17811, lng:-8.47747},
+  center: {lat:42.1756174, lng:-8.506475699999999},
   zoom: 13
 }
 // TODO: FIX THIS STYLE TO FIT INTO App.css
