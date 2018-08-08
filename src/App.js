@@ -25,9 +25,6 @@ class App extends Component {
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
-          <Search
-            pois={this.state.pois}
-          />
           <Map/>
         </main>
       </div>
