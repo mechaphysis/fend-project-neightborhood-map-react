@@ -23,6 +23,7 @@ class DataAPI extends Component {
     locations: [],
   }
 //We fetch locations from FourSquare inside componentDidMount for async behaviour
+// TODO: Add .catch() all along to handle errors when retrieving data
   componentDidMount() {
     fetch(dataRequest)
     .then(results => results.json())
@@ -38,7 +39,7 @@ class DataAPI extends Component {
       console.log("state", this.state.locations)
     })
   }
-  
+
   render () {
 
     return (
