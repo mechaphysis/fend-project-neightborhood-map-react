@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
+/* We use the docs of react-google-maps as reference for constructing
+* this Map Component with children Marker Component
+* https://tomchentw.github.io/react-google-maps/
+*/
+
 /* TODO: For the moment We hardcode Marker Component
  * for test purposes only. We will pass location array to Marker
  * with arrow function to populate the map with all the markers
@@ -19,12 +24,6 @@ handleMarkerClick={props.handleMarkerClick}
 </GoogleMap>
 )
 
- /* We use the docs of react-google-maps as reference for constructing
-  * this Map Component with children Marker Component
-  * https://tomchentw.github.io/react-google-maps/
-  */
-
-
 class Map extends Component {
    render() {
 
@@ -34,7 +33,7 @@ class Map extends Component {
        isMarkerShown
        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
        loadingElement={<div style={{ height: `100%` }} />}
-       containerElement={<div style={{ height: `400px` }} />}
+       containerElement={<div style={{ height: `500px` }} />}
        mapElement={<div style={{ height: `100%` }} />}
        handleMarkerClick={this.props.handleMarkerClick}
      />
