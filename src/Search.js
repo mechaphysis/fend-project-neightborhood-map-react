@@ -8,12 +8,10 @@ class Search extends Component {
         <input type="text" role="search" placeholder="Filter points of interest by name"/>
         <div className="search-poi-results">
           <ol className="poi-list">
-            {this.props.pois
-            .map(poi => (
-              <li>
-              <Poi
-                poi={poi}
-              />
+            {this.props.locations
+            .map(loc => (
+              <li key={loc.id}>
+               <p>{loc.name}</p>
               </li>
             ))
           }

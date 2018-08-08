@@ -65,6 +65,9 @@ class App extends Component {
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
+          <Search
+            locations={this.state.locations}
+          />
           <Map handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
