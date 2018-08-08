@@ -19,6 +19,14 @@ class App extends Component {
     center: { lat: 42.24059889999999, lng: -8.7207268 },
     zoom: 13
   }
+/* We load and fetch asynchronously the list of POIs by
+ * wrapping the fetching inside componentDidMount()
+ */
+  componentDidMount() {
+/* TODO: fetch and load inside poisArray the list of historic locations (POIs) 
+ * using FourSquareAPI
+ */
+  }
 
   render() {
     return (
