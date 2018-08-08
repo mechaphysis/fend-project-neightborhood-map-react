@@ -38,6 +38,7 @@ class App extends Component {
   */
 
   handleMarkerClick = (evt, latLng, marker) => {
+    console.log("Marker clicked!")
     this.setState({
       clickedMarker : marker,
       center : latLng,
@@ -62,7 +63,7 @@ class App extends Component {
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
-          <Map onMarkerClickEvent ={ this.handleMarkerClick }
+          <Map handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
             poisArray={ this.state.poisArray }
