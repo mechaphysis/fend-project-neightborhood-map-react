@@ -15,7 +15,7 @@ class App extends Component {
  * is triggered in either of them.
  */
   state = {
-    locations: [],
+    pois: [],
     clickedMarker: 0,
     center: { lat: 42.24059889999999, lng: -8.7207268 },
     zoom: 13
@@ -25,8 +25,8 @@ class App extends Component {
  * wrapping the fetching inside componentDidMount()
  */
   componentDidMount() {
-    DataAPI.fetchLocations().then( locations => {
-      this.setState({ locations })
+    DataAPI.fetchPois().then( pois => {
+      this.setState({ pois })
     })
   }
 
@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.locations)
+    console.log(this.state.pois)
     return (
       <div className="App">
         <header className="App-header">
@@ -66,12 +66,12 @@ class App extends Component {
         </header>
         <main className="main-content">
           <Search
-            locations={this.state.locations}
+            pois={this.state.pois}
           />
           <Map handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
-            locations={ this.state.locations }
+            pois={ this.state.pois }
             clickedMarker={ this.state.clickedMarker }
           />
         </main>
