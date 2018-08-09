@@ -19,6 +19,7 @@ class Search extends Component {
   /* With this update method we will update the state.query
    * depending on user input
    */
+
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
   }
@@ -31,16 +32,17 @@ class Search extends Component {
   }
 
   render () {
+    let pois= this.props.pois
     const {query}= this.state
 
     let listPois
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
-      listPois = this.props.pois.filter((poi) => match.test(this.props.pois.name))
+      listPois = pois.filter((poi) => match.test((poi.name)))
     } else {
-      listPois = this.props.pois
+      listPois = pois
     }
-
+    //We order by name the list of POIs:
     listPois.sort(sortBy('name'))
 
     return (
@@ -52,6 +54,12 @@ class Search extends Component {
           value={query}
           onChange={(event) => this.updateQuery(event.target.value)}
           />
+          {listPois.length !== pois.length && (
+            <div className='showing-pois'>
+              <span>Now showing {listPois.length} of {pois.length} total</span>
+              <button onClick={this.clearQuery}>Show all</button>
+            </div>
+          )}
           <ol className="poi-list">
             {listPois.map(poi => (
               <li key={poi.id} className="poi-list-item">
