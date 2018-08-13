@@ -56,18 +56,23 @@ class App extends Component {
     })
   }
 
+  openSearch = () => {
+    let searchMenu = document.getElementsByClassName('search-poi')
+    searchMenu[0].classList.toggle('open')
+  }
+
   render() {
     console.log(this.state.pois)
     return (
       <div className="App">
         <header className="App-header">
-          <img src={hamburguer} className="App-logo" alt="logo" />
+          <img onClick={this.openSearch} src={hamburguer} className="App-logo" alt="logo" />
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
-          <Search
-            pois={this.state.pois}
-          />
+            <Search
+              pois={this.state.pois}
+            />
           <Map handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }

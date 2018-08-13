@@ -7,6 +7,10 @@
   float: left;
 }
 
+.App-logo svg {
+  fill: #49b293;
+}
+
 .App-header {
   background-color: #222;
   height: 50px;
@@ -22,7 +26,27 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Styles for the Search part: */
+/* Took as reference the basic off-canvas implementation from W3 Schools:
+  https://www.w3schools.com/howto/howto_js_off-canvas.asp
+*/
+.search-poi {
+  background-color: white;
+  height: 100%;
+  width: 0px; /*We change the width by toggling .open*/
+  z-index: 1; /*we set its position to be on top*/
+  position: fixed;
+  overflow: scroll; /*We add horizontal scroll for the whole list*/
+  transition: 0.5s; /* We add a little transition effect for the search sliding*/
+}
+
+.search-poi.open {
+  width: 300px;
+}
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
 }
