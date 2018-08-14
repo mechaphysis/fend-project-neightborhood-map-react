@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import hamburguer from './hamburguer-icon.svg'
-import logo from './logo.svg';
 import './App.css';
 import MapContainer from './MapContainer.js'
 import Search from './Search.js'
