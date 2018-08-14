@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Marker } from 'react-google-maps'
+import { Marker, InfoWindow } from 'react-google-maps'
 
 class PoiMarker extends Component {
   render () {
@@ -9,6 +9,9 @@ class PoiMarker extends Component {
         name={this.props.name}
         position={this.props.location}
         >
+        <InfoWindow onClick={this.props.handleMarkerClick}>
+        <p>This is a test InfoWindow!</p>
+      </InfoWindow>}
       </Marker>
     )
   }

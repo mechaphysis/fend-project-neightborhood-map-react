@@ -20,13 +20,13 @@ import PoiMarker from './PoiMarker.js'
                     key={poi.id}
                     name={poi.name}
                     location={{lat: poi.location.lat, lng: poi.location.lng}}
+                    handleMarkerClick={props.handleMarkerClick}
                   />);
 
    return(
      <GoogleMap
      defaultZoom={11}
      defaultCenter={{ lat: 42.24059889999999, lng: -8.7207268 }}
-     handleMarkerClick={props.handleMarkerClick}
      >
      {markers}
      </GoogleMap>
