@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import hamburguer from './hamburguer-icon.svg'
 import logo from './logo.svg';
 import './App.css';
-import Map from './Map.js'
+import MapContainer from './MapContainer.js'
 import Search from './Search.js'
 import * as DataAPI from './DataAPI'
 
@@ -73,7 +73,7 @@ class App extends Component {
             <Search
               pois={this.state.pois}
             />
-          <Map handleMarkerClick ={ this.handleMarkerClick }
+          <MapContainer handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
             pois={ this.state.pois }
