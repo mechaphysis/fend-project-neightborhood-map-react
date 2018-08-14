@@ -10,8 +10,8 @@ class PoiMarker extends Component {
         position={this.props.location}
         >
         <InfoWindow onClick={this.props.handleMarkerClick}>
-        <p>This is a test InfoWindow!</p>
-      </InfoWindow>}
+        <p>{this.props.name}</p>
+      </InfoWindow>
       </Marker>
     )
   }
