@@ -12,14 +12,18 @@ import PoiMarker from './PoiMarker.js'
 * https://medium.com/@morgannegagne/google-maps-with-react-951c12b723ad
 */
 
-// TODO: RELATE THE POIS WITH THE FILTERED POIS FROM SEARCH:
+  // TODO: FIX LOGIC FOR SHOWING ALL POIS BY DEFAULT
 
  const PoisMap = withGoogleMap((props) =>{
 
   const markers = props.pois.map( poi => <PoiMarker
                     key={poi.id}
                     name={poi.name}
-                    location={{lat: poi.location.lat, lng: poi.location.lng}}
+                    latLng={{lat: poi.location.lat, lng: poi.location.lng}}
+                    address={poi.location.address}
+                    city={poi.location.city}
+                    state={poi.location.state}
+                    country={poi.location.country}
                     handleMarkerClick={props.handleMarkerClick}
                   />);
 

@@ -5,63 +5,32 @@ import PropTypes from 'prop-types'
 import * as DataAPI from './DataAPI'
 
 class Search extends Component {
-  /* We gonna need a query inside our state for updating
-   * the filtering results:
-   * Most of the logic is reused from previous FEND Project P7
-   * https://github.com/mechaphysis/fend-project-myreads-react-app
-   * which is itself based on reactnd-contacts code along app:
-   * https://github.com/udacity/reactnd-contacts-complete
-   */
 
-  state = {
-    query : '',
-  }
-  /* With this update method we will update the state.query
+  /* With this update method we will update the state.query in App.js
    * depending on user input
    */
-
   updateQuery = (query) => {
-    this.setState({ query: query.trim() })
+  this.props.filterByQuery(query)
   }
-
-  /* This small method allows us to reset te query to empty string
-   * which in turn will show again the full list of pois
-   */
-  clearQuery = () => {
-    this.setState({ query: '' })
-  }
-
+  // TODO: FIX LOGIC FOR SHOWING ALL POIS BY DEFAULT
+  
   render () {
-    let pois= this.props.pois
-    const {query}= this.state
-
-    let listPois
-    if (query) {
-      const match = new RegExp(escapeRegExp(query), 'i')
-      listPois = pois.filter((poi) => match.test((poi.name)))
-    } else {
-      listPois = pois
-    }
-    //We order by name the list of POIs:
-    listPois.sort(sortBy('name'))
-
     return (
       <div className="search-poi">
         <input
           type="text"
           role="search"
           placeholder="Filter Points Of Interest by name"
-          value={query}
+          value={this.props.query}
           onChange={(event) => this.updateQuery(event.target.value)}
           />
-          {listPois.length !== pois.length && (
+          {this.props.filteredPois.length !== this.props.pois.length && (
             <div className='showing-pois'>
-              <span>Now showing {listPois.length} of {pois.length} total</span>
-              <button onClick={this.clearQuery}>Show all</button>
+              <span>Now showing {this.props.filteredPois.length} of {this.props.pois.length} total</span>
             </div>
           )}
           <ol className="poi-list">
-            {listPois.map(poi => (
+            {this.props.filteredPois.map(poi => (
               <li key={poi.id} className="poi-list-item">
                <p>{poi.name}</p>
               </li>

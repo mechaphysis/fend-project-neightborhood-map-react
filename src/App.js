@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import escapeRegExp from 'escape-string-regexp'
+import sortBy from 'sort-by'
 import hamburguer from './hamburguer-icon.svg'
 import './App.css';
 import MapContainer from './MapContainer.js'
@@ -17,7 +19,9 @@ class App extends Component {
     pois: [],
     clickedMarker: 0,
     center: { lat: 42.24059889999999, lng: -8.7207268 },
-    zoom: 13
+    zoom: 13,
+    query : '',
+    filteredPois: []
   }
 
 /* We load and fetch asynchronously the list of POIs by
@@ -60,6 +64,43 @@ class App extends Component {
     searchMenu[0].classList.toggle('open')
   }
 
+  /* Logic for query and filtering:
+   * We gonna need a query inside our state for updating
+   * the filtering results:
+   * Most of the logic is reused from previous FEND Project P7
+   * https://github.com/mechaphysis/fend-project-myreads-react-app
+   * which is itself based on reactnd-contacts code along app:
+   * https://github.com/udacity/reactnd-contacts-complete
+   */
+
+  /* With this update method we will update the state.query
+   * depending on user input
+   */
+
+  updateQuery = (query) => {
+    this.setState({ query: query.trim() })
+  }
+
+  /* This small method allows us to reset te query to empty string
+   * which in turn will show again the full list of pois
+   */
+  clearQuery = () => {
+    this.setState({ query: '' })
+  }
+
+  filterByQuery = (query) => {
+    this.setState({query: query.trim() })
+    if (query) {
+      const match = new RegExp(escapeRegExp(query), 'i')
+      this.setState({filteredPois: this.state.pois.filter((poi) => match.test((poi.name))) })
+    } else {
+      this.setState({filteredPois : this.state.pois})
+    }
+    //We order by name the list of POIs:
+    this.state.filteredPois.sort(sortBy('name'))
+  }
+
+
   render() {
     console.log(this.state.pois)
     return (
@@ -71,11 +112,15 @@ class App extends Component {
         <main className="main-content">
             <Search
               pois={this.state.pois}
+              filteredPois={this.state.filteredPois}
+              query={this.state.query}
+              filterByQuery={this.filterByQuery}
+              clearQuery={this.clearQuery}
             />
           <MapContainer handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
-            pois={ this.state.pois }
+            pois={ this.state.filteredPois }
             clickedMarker={ this.state.clickedMarker }
           />
         </main>
