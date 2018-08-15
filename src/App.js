@@ -59,6 +59,10 @@ class App extends Component {
     })
   }
 
+/* The function below will toggle the open class for showing/hiding the
+ * list of places and filter functionality by clicking hamburguer menu
+ *
+ */
   openSearch = () => {
     let searchMenu = document.getElementsByClassName('search-poi')
     searchMenu[0].classList.toggle('open')
@@ -102,7 +106,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.pois)
+    console.log("Default Pois: ",this.state.pois, "Filtered Pois: ",this.state.filteredPois)
     return (
       <div className="App">
         <header className="App-header">

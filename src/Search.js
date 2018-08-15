@@ -13,7 +13,7 @@ class Search extends Component {
   this.props.filterByQuery(query)
   }
   // TODO: FIX LOGIC FOR SHOWING ALL POIS BY DEFAULT
-  
+
   render () {
     return (
       <div className="search-poi">
