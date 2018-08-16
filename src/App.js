@@ -124,7 +124,9 @@ class App extends Component {
           <MapContainer handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
-            pois={ this.state.filteredPois }
+            /*TODO: For testing infoWindow: UNTIL FIXING DEFAULT FilteredPois, using Poi LIST */
+            /*pois={ this.state.filteredPois }*/
+            pois={ this.state.pois }
             clickedMarker={ this.state.clickedMarker }
           />
         </main>

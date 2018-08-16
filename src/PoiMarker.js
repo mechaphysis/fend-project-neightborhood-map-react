@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { Marker, InfoWindow } from 'react-google-maps'
 
 class PoiMarker extends Component {
+  state = {
+    isOpen: false
+  }
+// TODO: CONTINUE WORKING IN THIS HANDLER BASED ON react-google-maps.docs
+  onToggleOpen = () => {
+    this.setState({isOpen: true})
+  }
+
+  onToggleClose = () => {
+    this.setState({isOpen: false})
+  }
+
   render () {
     return (
       <Marker
@@ -12,8 +24,9 @@ class PoiMarker extends Component {
         city={this.props.city}
         state={this.props.state}
         country={this.props.country}
+        onClick={() => this.onToggleOpen()}
         >
-        <InfoWindow onClick={this.props.handleMarkerClick}>
+{this.state.isOpen && <InfoWindow onCloseClick={this.props.onToggleOpen}>
           <div className="infoWindow-content">
             <h3>{this.props.name}</h3>
             <p>{this.props.address}</p>
@@ -21,7 +34,7 @@ class PoiMarker extends Component {
             <p>{this.props.state}</p>
             <p>{this.props.country}</p>
           </div>
-      </InfoWindow>
+          </InfoWindow>}
       </Marker>
     )
   }
