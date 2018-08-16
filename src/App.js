@@ -44,23 +44,7 @@ class App extends Component {
   * the marker area
   */
 
-  handleMarkerClick = (evt, latLng, marker) => {
-    console.log("Marker clicked!")
-    this.setState({
-      clickedMarker : marker,
-      center : latLng,
-      zoom : 20 })
-    }
-  /* The method below will reset state to default after closing
-   * an infoWindow
-   */
-  handleInfoWindowEvent = (e) => {
-    this.setState({
-      clickedMarker: 0,
-      center: { lat: 42.24059889999999, lng: -8.7207268 },
-      zoom: 13
-    })
-  }
+
 
 /* The function below will toggle the open class for showing/hiding the
  * list of places and filter functionality by clicking hamburguer menu
@@ -124,11 +108,10 @@ class App extends Component {
               filterByQuery={this.filterByQuery}
               clearQuery={this.clearQuery}
             />
-          <MapContainer handleMarkerClick ={ this.handleMarkerClick }
+          <MapContainer
             center={ this.state.center }
             zoom={ this.state.zoom }
             pois={ this.state.filteredPois }
-            clickedMarker={ this.state.clickedMarker }
           />
         </main>
       </div>
