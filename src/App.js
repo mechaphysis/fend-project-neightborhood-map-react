@@ -26,10 +26,13 @@ class App extends Component {
 
 /* We load and fetch asynchronously the list of POIs by
  * wrapping the fetching inside componentDidMount()
+ * we load the list of Pois also in filteredPois so this second list contains
+ * by default all locations and the map shows up everything when the user first
+ * enter the app
  */
   componentDidMount() {
     DataAPI.fetchPois().then( pois => {
-      this.setState({ pois })
+      this.setState({ pois: pois, filteredPois: pois })
     })
   }
 
@@ -124,9 +127,7 @@ class App extends Component {
           <MapContainer handleMarkerClick ={ this.handleMarkerClick }
             center={ this.state.center }
             zoom={ this.state.zoom }
-            /*TODO: For testing infoWindow: UNTIL FIXING DEFAULT FilteredPois, using Poi LIST */
-            /*pois={ this.state.filteredPois }*/
-            pois={ this.state.pois }
+            pois={ this.state.filteredPois }
             clickedMarker={ this.state.clickedMarker }
           />
         </main>
