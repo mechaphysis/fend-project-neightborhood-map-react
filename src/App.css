@@ -31,7 +31,7 @@
   https://www.w3schools.com/howto/howto_js_off-canvas.asp
 */
 .search-poi {
-  background-color: white;
+  background-color: #222;
   height: 100%;
   width: 0px; /*We change the width by toggling .open*/
   z-index: 1; /*we set its position to be on top*/
@@ -48,5 +48,19 @@ ol {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 300px;
+  color: white;
+  background-color: #222;
+}
+
+.search-poi input {
+  width: 100%;
+  /* padding: 20px 20px 20px 60px; */
+  font-size: 1.2em;
+}
+
+.showing-pois {
+  padding-top: 1em;
+  font-size: 0.8em;
+  color: grey;
 }
