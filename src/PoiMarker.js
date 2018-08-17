@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Marker, InfoWindow } from 'react-google-maps'
+/*global google*/
 
 class PoiMarker extends Component {
 
@@ -21,6 +22,7 @@ class PoiMarker extends Component {
     this.setState({isOpen: false})
   }
 
+
   render () {
     return (
       <Marker
@@ -31,6 +33,7 @@ class PoiMarker extends Component {
         city={this.props.city}
         state={this.props.state}
         country={this.props.country}
+        animation={this.props.infoWindowId=== this.props.name && google.maps.Animation.BOUNCE }
         onClick={(event) =>
         this.props.handleItemClick(event,this.props.latLng,this.props.name)}
         >
