@@ -42,6 +42,8 @@ class App extends Component {
   componentDidMount() {
     DataAPI.fetchPois().then( pois => {
       this.setState({ pois: pois, filteredPois: pois })
+    }).catch(error => {
+      window.alert("Error loading Data from FourSquare API: ", error)
     })
   }
 
