@@ -111,7 +111,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img onClick={this.openSearch} src={hamburguer} className="App-logo" alt="logo" />
+          <img
+          tabIndex="0"
+          onClick={this.openSearch}
+          onKeyPress={(e) => { e.key === 'Enter' && this.openSearch() }}
+          src={hamburguer} className="App-logo" alt="logo" />
           <h1 className="App-title">Local Sightseeing Map</h1>
         </header>
         <main className="main-content">
