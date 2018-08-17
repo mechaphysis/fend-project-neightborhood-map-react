@@ -57,7 +57,8 @@ class App extends Component {
 
 /* The function below will toggle the open class for showing/hiding the
  * list of places and filter functionality by clicking hamburguer menu
- * It will also change the aria-hidden value for true or by changing filterHidden
+ * It will also change the aria-hidden value for true or false
+ * by changing filterHidden
  */
   openSearch = () => {
     let searchMenu = document.getElementsByClassName('search-poi')
