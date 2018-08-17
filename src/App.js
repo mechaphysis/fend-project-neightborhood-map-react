@@ -29,7 +29,6 @@ class App extends Component {
     console.log("Event: ", event, " Coordinates: ",latLng, " Location id: ",listItem)
     this.setState({
       infoWindowId: listItem,
-      // TODO: implement here also change in marker icon
     })
   }
 
@@ -39,6 +38,7 @@ class App extends Component {
  * by default all locations and the map shows up everything when the user first
  * enter the app
  */
+ // TODO: KEEP WORKING ON FETCHING VENUE DETAILS FOR EVERY POI
   componentDidMount() {
     DataAPI.fetchPois().then( pois => {
       this.setState({ pois: pois, filteredPois: pois })
