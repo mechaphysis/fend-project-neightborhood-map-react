@@ -11,10 +11,12 @@ class Search extends Component {
 
   render () {
     return (
-      <div className="search-poi">
+      <div className="search-poi"
+          aria-hidden={this.props.filterHidden}>
         <input
           type="text"
           role="search"
+          tabIndex="0"
           placeholder="Filter Points Of Interest by name"
           value={this.props.query}
           onChange={(event) => this.updateQuery(event.target.value)}
@@ -24,9 +26,13 @@ class Search extends Component {
               <span>Now showing {this.props.filteredPois.length} of {this.props.pois.length} total</span>
             </div>
           )}
-          <ol className="poi-list">
+          <ol className="poi-list"
+              tabIndex="-1"
+              >
             {this.props.filteredPois.map(poi => (
-              <li onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.name)} key={poi.id} className="poi-list-item">
+              <li
+              tabIndex="0"
+              onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.name)} key={poi.id} className="poi-list-item">
                <p>{poi.name}</p>
               </li>
             ))

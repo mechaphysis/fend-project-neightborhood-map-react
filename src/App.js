@@ -22,6 +22,7 @@ class App extends Component {
     zoom: 13,
     query : '',
     filteredPois: [],
+    filterHidden: "true"
   }
 
   handleItemClick = (event, latLng,listItem) => {
@@ -56,11 +57,16 @@ class App extends Component {
 
 /* The function below will toggle the open class for showing/hiding the
  * list of places and filter functionality by clicking hamburguer menu
- *
+ * It will also change the aria-hidden value for true or by changing filterHidden
  */
   openSearch = () => {
     let searchMenu = document.getElementsByClassName('search-poi')
     searchMenu[0].classList.toggle('open')
+    if (this.state.filterHidden === "true") {
+      this.setState({filterHidden: "false"})
+    } else {
+      this.setState({filterHidden: "true"})
+    }
   }
 
   /* Logic for query and filtering:
@@ -116,6 +122,7 @@ class App extends Component {
               filterByQuery={this.filterByQuery}
               clearQuery={this.clearQuery}
               handleItemClick={this.handleItemClick}
+              filterHidden={this.state.filterHidden}
             />
           <MapContainer
             center={ this.state.center }

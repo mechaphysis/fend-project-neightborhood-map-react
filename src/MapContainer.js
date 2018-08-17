@@ -6,6 +6,8 @@ class MapContainer extends Component {
   render () {
     return (
       <PoisMap
+        role="application"
+        aria-label="Google Map with locations"
         pois={this.props.pois}
         poiId={this.props.poiId}
         handleItemClick={this.props.handleItemClick}
