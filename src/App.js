@@ -130,6 +130,7 @@ class App extends Component {
               filterHidden={this.state.filterHidden}
             />
           <MapContainer
+            tabIndex="0"
             center={ this.state.center }
             zoom={ this.state.zoom }
             pois={ this.state.filteredPois }
@@ -138,6 +139,12 @@ class App extends Component {
             infoWindowId={this.state.infoWindowId}
           />
         </main>
+        <footer className="footer">
+        <p className="footer-details">
+    This Web-App was developed by <a href="https://github.com/mechaphysis">@mechaphysis</a> as the Capstone Project for Udacity Front End NanoDegree.
+    Information about the locations is provided by <a href="https://developer.foursquare.com/">FourSquare API</a>.
+  </p>
+</footer>
       </div>
     );
   }

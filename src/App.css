@@ -64,3 +64,20 @@ ol {
   font-size: 0.8em;
   color: grey;
 }
+
+.footer {
+  background-color: #222;
+}
+
+.footer-details {
+  font-size: 0.7em;
+  color: white;
+  background-color: #222;
+  padding: 10px;
+  margin: 0;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+}
