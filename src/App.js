@@ -130,7 +130,6 @@ class App extends Component {
               filterHidden={this.state.filterHidden}
             />
           <MapContainer
-            tabIndex="0"
             center={ this.state.center }
             zoom={ this.state.zoom }
             pois={ this.state.filteredPois }
