@@ -24,6 +24,9 @@ import PoiMarker from './PoiMarker.js'
                     city={poi.location.city}
                     state={poi.location.state}
                     country={poi.location.country}
+                    poiId={props.poiId}
+                    handleItemClick={props.handleItemClick}
+                    infoWindowId={props.infoWindowId}
                   />);
 
    return(

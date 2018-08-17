@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
-import PropTypes from 'prop-types'
-import * as DataAPI from './DataAPI'
 
 class Search extends Component {
 
@@ -12,7 +8,6 @@ class Search extends Component {
   updateQuery = (query) => {
   this.props.filterByQuery(query)
   }
-  // TODO: FIX LOGIC FOR SHOWING ALL POIS BY DEFAULT
 
   render () {
     return (
@@ -31,7 +26,7 @@ class Search extends Component {
           )}
           <ol className="poi-list">
             {this.props.filteredPois.map(poi => (
-              <li key={poi.id} className="poi-list-item">
+              <li onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.name)} key={poi.id} className="poi-list-item">
                <p>{poi.name}</p>
               </li>
             ))

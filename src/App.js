@@ -17,11 +17,19 @@ class App extends Component {
  */
   state = {
     pois: [],
-    clickedMarker: 0,
+    infoWindowId: -1,
     center: { lat: 42.24059889999999, lng: -8.7207268 },
     zoom: 13,
     query : '',
-    filteredPois: []
+    filteredPois: [],
+  }
+
+  handleItemClick = (event, latLng,listItem) => {
+    console.log("Event: ", event, " Coordinates: ",latLng, " Location id: ",listItem)
+    this.setState({
+      infoWindowId: listItem,
+      // TODO: implement here also change in marker icon
+    })
   }
 
 /* We load and fetch asynchronously the list of POIs by
@@ -107,11 +115,15 @@ class App extends Component {
               query={this.state.query}
               filterByQuery={this.filterByQuery}
               clearQuery={this.clearQuery}
+              handleItemClick={this.handleItemClick}
             />
           <MapContainer
             center={ this.state.center }
             zoom={ this.state.zoom }
             pois={ this.state.filteredPois }
+            poiId={this.state.poiId}
+            handleItemClick={this.handleItemClick}
+            infoWindowId={this.state.infoWindowId}
           />
         </main>
       </div>
