@@ -24,3 +24,10 @@ export const fetchPois = () =>
   fetch(`${api}/venues/search?${requestParameters}`)
   .then(results => results.json())
   .then( data => data.response.venues)
+
+
+export const fetchDetails = (poiId) => {
+  return fetch(`${api}/venues/${poiId}?&client_id=CGXWEC0GDPSBTIX4M52VH4H2DCQNLK3NR2DG5POGO2IVQRAL&client_secret=YPSYJESZMRZSVIOCNFGIHYH5AH0NWWNXVAPSBR1VICEPP3GT&v=20180808`)
+  .then(detailsResults => detailsResults.json())
+  .then(data => data.response.venues)
+}
