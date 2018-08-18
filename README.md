@@ -84,6 +84,7 @@ See the section about [deployment](#deployment) for more information.
 * Modify CSS for a fresher look
 * Allow the user to search locations by categories (i.e restaurants, hotels, etc)
 * Refactor code for a cleaner separation of concerns using [Redux](https://redux.js.org/)
+* Integrate more data from other APIs. For example Wikipedia for some detailed descriptions.
 
 ## Contributing
 
