@@ -17,7 +17,8 @@ const api= 'https://api.foursquare.com/v2'
  */
 
 const requestParameters ='ll=42.24059889999999,-8.7207268&intent=browse&radius=10000&categoryId=4deefb944765f83613cdba6e&client_id=CGXWEC0GDPSBTIX4M52VH4H2DCQNLK3NR2DG5POGO2IVQRAL&client_secret=YPSYJESZMRZSVIOCNFGIHYH5AH0NWWNXVAPSBR1VICEPP3GT&v=20180808'
-
+const clientId ='?&client_id=CGXWEC0GDPSBTIX4M52VH4H2DCQNLK3NR2DG5POGO2IVQRAL'
+const clientSecret ='&client_secret=YPSYJESZMRZSVIOCNFGIHYH5AH0NWWNXVAPSBR1VICEPP3GT&v=20180808'
 //We fetch POIs from FourSquare here
 // TODO: Add .catch() all along to handle errors when retrieving data
 export const fetchPois = () =>
@@ -27,7 +28,6 @@ export const fetchPois = () =>
 
 
 export const fetchDetails = (poiId) =>
-  fetch(`${api}/venues/`+poiId+
-  '?&client_id=CGXWEC0GDPSBTIX4M52VH4H2DCQNLK3NR2DG5POGO2IVQRAL'+
-  '&client_secret=YPSYJESZMRZSVIOCNFGIHYH5AH0NWWNXVAPSBR1VICEPP3GT&v=20180808')
+  fetch(`${api}/venues/${poiId}${clientId}${clientSecret}`)
   .then(results => results.json())
+  .then(data => data.response.venueDetails)
