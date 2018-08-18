@@ -38,6 +38,8 @@ and the React wrapper [react-google-maps](https://tomchentw.github.io/react-goog
 
 ### For Users
 
+Visit the [Project Website](https://mechaphysis.github.io/fend-project-neightborhood-map-react)
+
 ### For Developers
 
 * Either `git clone https://github.com/mechaphysis/fend-project-myreads-react-app.git` or download the [zip](https://github.com/mechaphysis/fend-project-myreads-react-app/archive/master.zip)
