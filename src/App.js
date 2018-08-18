@@ -7,6 +7,16 @@ import MapContainer from './MapContainer.js'
 import Search from './Search.js'
 import * as DataAPI from './DataAPI'
 
+
+/* The method .gm_authFailure below handles error in API key
+ * authentication for Google Maps API. It is necessary, otherwise
+ * if the API key fails the user is left wondering what is happening with
+ * the web app not loading:
+ */
+window.gm_authFailure = function() {
+    alert("Google Maps API Key Authentication error! Try refreshing the page again.")
+}
+
 class App extends Component {
 /* inside the Parent state we gonna pass the array of POI (POI stands for Point of Interests)
  * retrieved using FourSquare API. We will store also which Marker has been clicked, the center of
