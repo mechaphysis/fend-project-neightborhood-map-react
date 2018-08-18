@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   handleItemClick = (event, latLng,listItem) => {
-    console.log("Event: ", event, " Coordinates: ",latLng, " Location id: ",listItem)
     this.setState({
       infoWindowId: listItem,
     })
@@ -110,7 +109,6 @@ class App extends Component {
 
 
   render() {
-    console.log("Default Pois: ",this.state.pois, "Filtered Pois: ",this.state.filteredPois)
     return (
       <div className="App">
         <header className="App-header">
