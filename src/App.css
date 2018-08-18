@@ -90,4 +90,7 @@ a {
 .poi-img {
   width: 10em;
   height: 10em;
+  border-style: solid;
+  border-width: thin;
+  border-color: grey;
 }
