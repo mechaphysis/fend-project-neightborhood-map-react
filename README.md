@@ -13,8 +13,15 @@ This is the Capstone Project for Udacity Front End Nanodegree. We are required t
 
 For completing this project each student has to fullfill all the requirements listed in the [Project Rubric](https://review.udacity.com/#!/rubrics/1351/view)
 
-Once the application is fully built, the user should be able to see and interact with a map of our choosed location, with markers in it that relate to points of interest of the area. When the user clicks in a marker, information about the place should be displayed.
-Also, the user is able to filter the locations with the provided search functionality and can navigate through the list of locations also.
+Once the application is fully built:
+
+* The user should be able to see and interact with a map of our choosed location.
+* The map contains markers for local points of interest.
+* When the user clicks in a marker, information about the place should be displayed.
+* Also, a list of the locations is showed somewhere in the application.
+* The user is able to filter this list with the provided search functionality.
+* When the user clicks or presses enter in a specific location of the list, fnformation
+about the place is displayed aswell.
 
 ## Dependencies
 
