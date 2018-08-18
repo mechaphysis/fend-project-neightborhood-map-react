@@ -9,6 +9,13 @@
 # What it is
 ## Front End Nanodegree Project 8 (Capstone): My Neightborhood Map
 
+This is the Capstone Project for Udacity Front End Nanodegree. We are required to build from scratch a web app using [React](https://reactjs.org/), Google Maps API and at least another third party API for fetching information.
+
+For completing this project each student has to fullfill all the requirements listed in the [Project Rubric](https://review.udacity.com/#!/rubrics/1351/view)
+
+Once the application is fully built, the user should be able to see and interact with a map of our choosed location, with markers in it that relate to points of interest of the area. When the user clicks in a marker, information about the place should be displayed.
+Also, the user is able to filter the locations with the provided search functionality and can navigate through the list of locations also.
+
 ## Dependencies
 
 * This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
