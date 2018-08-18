@@ -27,6 +27,7 @@ import PoiMarker from './PoiMarker.js'
                     poiId={poi.id}
                     handleItemClick={props.handleItemClick}
                     infoWindowId={props.infoWindowId}
+                    venueDetails={props.venueDetails}
                   />);
 
    return(

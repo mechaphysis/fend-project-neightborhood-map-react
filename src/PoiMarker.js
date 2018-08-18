@@ -33,17 +33,25 @@ class PoiMarker extends Component {
         city={this.props.city}
         state={this.props.state}
         country={this.props.country}
+        venueDetails={this.props.venueDetails}
         animation={this.props.infoWindowId=== this.props.name && google.maps.Animation.BOUNCE }
         onClick={(event) =>
         this.props.handleItemClick(event,this.props.latLng,this.props.poiId)}
         >
-{this.props.infoWindowId === this.props.poiId && <InfoWindow onCloseClick={this.props.onToggleOpen}>
+{this.props.infoWindowId === this.props.poiId && <InfoWindow className="infoWindow" onCloseClick={this.props.onToggleOpen}>
           <div className="infoWindow-content">
             <h3>{this.props.name}</h3>
             <p>{this.props.address}</p>
-            <p>{this.props.city}</p>
-            <p>{this.props.state}</p>
-            <p>{this.props.country}</p>
+            <p>{this.props.city} {this.props.state} {this.props.country}</p>
+            {this.props.venueDetails.bestPhoto &&
+            <img className="poi-img"
+                 alt={'A picture of '+this.props.name}
+                 src={this.props.venueDetails.bestPhoto.prefix+
+                      this.props.venueDetails.bestPhoto.width+
+                      'x'+
+                      this.props.venueDetails.bestPhoto.height+
+                    this.props.venueDetails.bestPhoto.suffix} />
+            }
           </div>
           </InfoWindow>}
       </Marker>
@@ -51,4 +59,5 @@ class PoiMarker extends Component {
   }
 }
 
+            // <p>{this.props.tips.groups.items.text}</p>
 export default PoiMarker

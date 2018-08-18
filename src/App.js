@@ -32,7 +32,8 @@ class App extends Component {
     zoom: 13,
     query : '',
     filteredPois: [],
-    filterHidden: "true"
+    filterHidden: "true",
+    venueDetails: []
   }
 
   /* Due to limitations in FourSquare API for Venue Details, we implement
@@ -44,8 +45,12 @@ class App extends Component {
 
   getPoiDetails = (poiId) => {
     DataAPI.fetchDetails(poiId).then(
-      (data) => { console.log(data.response)}
-    )
+      (data) => {
+        this.setState({venueDetails: data.response.venue})
+        console.log(data.response.venue, "tips: ", data.response.venue.tips.groups)})
+        .catch(error => {
+      window.alert("Error loading Venue Details from FourSquare API", error)
+    })
   }
 
   handleItemClick = (event, latLng,listItem) => {
@@ -160,6 +165,7 @@ class App extends Component {
             poiId={this.state.poiId}
             handleItemClick={this.handleItemClick}
             infoWindowId={this.state.infoWindowId}
+            venueDetails={this.state.venueDetails}
           />
         </main>
         <footer className="footer">

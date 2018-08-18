@@ -81,3 +81,13 @@ a {
   color: white;
   font-weight: bold;
 }
+
+.infoWindow-content {
+  margin: 0;
+  padding:0;
+}
+
+.poi-img {
+  width: 10em;
+  height: 10em;
+}
