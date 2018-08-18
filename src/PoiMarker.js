@@ -5,9 +5,8 @@ import { Marker, InfoWindow } from 'react-google-maps'
 class PoiMarker extends Component {
 
   state = {
-    isOpen: false
+    isOpen: false,
   }
-
 
   /* The toggling method below is replaced now by handleItemClick method that comes from
    * parent App.js, this way we can also pass the method to the other child (Search.js)
@@ -24,9 +23,10 @@ class PoiMarker extends Component {
 
 
   render () {
+    console.log(this.props.poiId)
     return (
       <Marker
-        key={this.props.id}
+        key={this.props.poiId}
         name={this.props.name}
         position={this.props.latLng}
         address={this.props.address}
@@ -35,9 +35,9 @@ class PoiMarker extends Component {
         country={this.props.country}
         animation={this.props.infoWindowId=== this.props.name && google.maps.Animation.BOUNCE }
         onClick={(event) =>
-        this.props.handleItemClick(event,this.props.latLng,this.props.name)}
+        this.props.handleItemClick(event,this.props.latLng,this.props.poiId)}
         >
-{this.props.infoWindowId === this.props.name && <InfoWindow onCloseClick={this.props.onToggleOpen}>
+{this.props.infoWindowId === this.props.poiId && <InfoWindow onCloseClick={this.props.onToggleOpen}>
           <div className="infoWindow-content">
             <h3>{this.props.name}</h3>
             <p>{this.props.address}</p>

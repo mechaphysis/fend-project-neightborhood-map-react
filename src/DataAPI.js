@@ -30,4 +30,3 @@ export const fetchPois = () =>
 export const fetchDetails = (poiId) =>
   fetch(`${api}/venues/${poiId}${clientId}${clientSecret}`)
   .then(results => results.json())
-  .then(data => data.response.venueDetails)

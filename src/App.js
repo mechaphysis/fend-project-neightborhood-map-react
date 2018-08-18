@@ -35,10 +35,24 @@ class App extends Component {
     filterHidden: "true"
   }
 
+  /* Due to limitations in FourSquare API for Venue Details, we implement
+   * inside handleItemClick method the data fetching for each marker. This way,
+   * the data request to FourSquare API would only be made each time the user
+   * clicks on a marker. Otherwise we would reach the limit of 50 daily requests
+   * very soon.
+  */
+
+  getPoiDetails = (poiId) => {
+    DataAPI.fetchDetails(poiId).then(
+      (data) => { console.log(data.response)}
+    )
+  }
+
   handleItemClick = (event, latLng,listItem) => {
     this.setState({
       infoWindowId: listItem,
     })
+  this.getPoiDetails(listItem)
   }
 
 /* We load and fetch asynchronously the list of POIs by
