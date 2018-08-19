@@ -16,6 +16,7 @@ class Search extends Component {
         <input
           type="text"
           role="search"
+          aria-label="search"
           tabIndex="0"
           placeholder="Filter Points Of Interest by name"
           value={this.props.query}
