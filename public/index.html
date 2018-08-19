@@ -10,8 +10,12 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!-- load the google maps API with the key. For avoiding render-blocking we add the attribute "async"-->
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSlQ0cytFxsHiEYrKiWpPdyEh8PyUuW40"></script>
+    <!-- load the google maps API with the key. For avoiding render-blocking we add the attribute "async"
+         We also had defer as first asynchronous load option if avaliable. Defer if avaliable in the browser
+         is prefered than async. However Internet Explorer has a bug related to defer that prevents its proper
+         functioning, so it will fallback to "async"
+    -->
+    <script defer async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSlQ0cytFxsHiEYrKiWpPdyEh8PyUuW40" onerror="(event) => {alert('Failure to load Google Maps Resources', event)}"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
