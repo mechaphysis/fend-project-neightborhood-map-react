@@ -35,7 +35,7 @@ class Search extends Component {
               <li
               tabIndex="0"
               role="listitem"
-              onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.name)}
+              onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id)}
               onKeyPress={(event) => { event.key === 'Enter' && this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id) }}
               key={poi.id}
               className="poi-list-item">
