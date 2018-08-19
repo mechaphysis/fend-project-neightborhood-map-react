@@ -29,10 +29,12 @@ class Search extends Component {
           )}
           <ol className="poi-list"
               tabIndex="-1"
+              role="list"
               >
             {this.props.filteredPois.map(poi => (
               <li
               tabIndex="0"
+              role="listitem"
               onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.name)}
               onKeyPress={(event) => { event.key === 'Enter' && this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id) }}
               key={poi.id}
