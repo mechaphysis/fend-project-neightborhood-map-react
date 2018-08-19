@@ -42,11 +42,17 @@ Visit the [Project Website](https://mechaphysis.github.io/fend-project-neightbor
 
 ### For Developers
 
-* Either `git clone https://github.com/mechaphysis/fend-project-myreads-react-app.git` or download the [zip](https://github.com/mechaphysis/fend-project-myreads-react-app/archive/master.zip)
+* Either `git clone https://github.com/mechaphysis/fend-project-neightborhood-map-react.git` or download the [zip](https://github.com/mechaphysis/fend-project-neightborhood-map-react/archive/master.zip)
+
+* After cloning the repo or downloading+unzipping it. Navigate to the root of the project folder in your local machine, in this case: `$fend-project-neightborhood-map-react` before running the following commands:
 
 The application requires only `npm install` to build dependencies and `npm start` to launch the server and use the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
+
+#### Build the App for Production
+
+* If you want to build the app for production, run `npm run build`. However, after doing this, it is strongly discouraged to run `npm run eject` as it is an irreversible process. You will most likely not need to eject the app, in most cases for small/medium size projects it is sufficient to build for production with the mentioned `npm run build`
 
 You can find the more information on how to perform common tasks using `create-react-app` [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
