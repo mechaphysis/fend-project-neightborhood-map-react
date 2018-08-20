@@ -23,7 +23,6 @@ class PoiMarker extends Component {
 
 
   render () {
-    console.log(this.props.poiId)
     return (
       <Marker
         key={this.props.poiId}
