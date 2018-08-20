@@ -43,7 +43,7 @@ class PoiMarker extends Component {
             <h3>{this.props.name}</h3>
             <p>{this.props.address}</p>
             <p>{this.props.city} {this.props.state} {this.props.country}</p>
-            {this.props.venueDetails.bestPhoto &&
+            {(this.props.venueDetails != undefined && this.props.venueDetails.bestPhoto) &&
             <img className="poi-img"
                  alt={'A picture of '+this.props.name}
                  src={this.props.venueDetails.bestPhoto.prefix+
