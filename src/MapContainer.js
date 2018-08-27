@@ -13,7 +13,7 @@ class MapContainer extends Component {
         handleItemClick={this.props.handleItemClick}
         infoWindowId={this.props.infoWindowId}
         venueDetails={this.props.venueDetails}
-        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSlQ0cytFxsHiEYrKiWpPdyEh8PyUuW40"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `500px` }} />}
         mapElement={<div style={{ height: `100%` }} />}

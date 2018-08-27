@@ -1,5 +1,5 @@
 import React from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps'
+import { withScriptjs, withGoogleMap, GoogleMap } from 'react-google-maps'
 import PoiMarker from './PoiMarker.js'
 
 /* We use the docs of react-google-maps as reference for constructing
@@ -14,7 +14,7 @@ import PoiMarker from './PoiMarker.js'
 
   // TODO: FIX LOGIC FOR SHOWING ALL POIS BY DEFAULT
 
- const PoisMap = withGoogleMap((props) =>{
+ const PoisMap = withScriptjs(withGoogleMap((props) =>{
 
   const markers = props.pois.map( poi => <PoiMarker
                     key={poi.id}
@@ -39,6 +39,6 @@ import PoiMarker from './PoiMarker.js'
      </GoogleMap>
    );
  }
-)
+))
 
 export default PoisMap
