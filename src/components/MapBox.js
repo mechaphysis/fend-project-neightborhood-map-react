@@ -20,7 +20,7 @@ constructor(props) {
       viewport: {
         latitude: 42.24059889999999,
         longitude: -8.7207268,
-        zoom: 13,
+        zoom: 10,
         bearing: 0,
         pitch: 0,
         width: '100%',
