@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-
 import MapGL, {NavigationControl} from 'react-map-gl';
 
-const TOKEN = 'token';
+import {config} from '../utils/mapboxConfig'
+
+const TOKEN = config.token;
+const MAPSTYLE = config.styleURL
 
 const navStyle = {
   position: 'absolute',
@@ -31,7 +33,7 @@ render() {
 return (
       <MapGL
         {...viewport}
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle={MAPSTYLE}
         mapboxApiAccessToken={TOKEN}>
         <div className="nav" style={navStyle}>
           <NavigationControl/>
