@@ -18,12 +18,12 @@ constructor(props) {
     super(props);
     this.state = {
       viewport: {
-        latitude: 37.785164,
-        longitude: -100,
-        zoom: 2.8,
+        latitude: 42.24059889999999,
+        longitude: -8.7207268,
+        zoom: 13,
         bearing: 0,
         pitch: 0,
-        width: 500,
+        width: '100%',
         height: 500,
       }
     };
