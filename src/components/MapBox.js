@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MapGL, {NavigationControl} from 'react-map-gl';
+import MapGL, {Marker, NavigationControl} from 'react-map-gl';
 
 import {config} from '../utils/mapboxConfig'
 
@@ -30,6 +30,14 @@ constructor(props) {
   }
 render() {
     const {viewport} = this.state;
+    console.log('-> props: ', this.props)
+    const markers = this.props.pois.map( poi => <Marker
+    key={poi.id}
+    longitude={poi.location.lng}
+    latitude={poi.location.lat}
+    >
+    <div>Test</div>
+    </Marker>)
 return (
       <MapGL
         {...viewport}
@@ -37,6 +45,7 @@ return (
         mapboxApiAccessToken={TOKEN}>
         <div className="nav" style={navStyle}>
           <NavigationControl/>
+          {markers}
         </div>
       </MapGL>
     );

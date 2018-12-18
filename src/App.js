@@ -4,6 +4,7 @@ import sortBy from 'sort-by'
 import hamburguer from './hamburguer-icon.svg'
 import './App.css';
 import MapContainer from './MapContainer.js'
+import MapBox from "./components/MapBox"
 import Search from './Search.js'
 import * as DataAPI from './DataAPI'
 
@@ -136,6 +137,18 @@ class App extends Component {
     this.state.filteredPois.sort(sortBy('name'))
   }
 
+  /**
+   * Old map:
+   *           <MapContainer
+            center={ this.state.center }
+            zoom={ this.state.zoom }
+            pois={ this.state.filteredPois }
+            poiId={this.state.poiId}
+            handleItemClick={this.handleItemClick}
+            infoWindowId={this.state.infoWindowId}
+            venueDetails={this.state.venueDetails}
+          />
+   */
 
   render() {
     return (
@@ -158,15 +171,7 @@ class App extends Component {
               handleItemClick={this.handleItemClick}
               filterHidden={this.state.filterHidden}
             />
-          <MapContainer
-            center={ this.state.center }
-            zoom={ this.state.zoom }
-            pois={ this.state.filteredPois }
-            poiId={this.state.poiId}
-            handleItemClick={this.handleItemClick}
-            infoWindowId={this.state.infoWindowId}
-            venueDetails={this.state.venueDetails}
-          />
+            <MapBox pois={ this.state.filteredPois }></MapBox>
         </main>
         <footer className="footer">
         <p className="footer-details">
