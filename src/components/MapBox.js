@@ -32,11 +32,11 @@ render() {
     const {viewport} = this.state;
     console.log('-> props: ', this.props)
     const markers = this.props.pois.map( poi => <Marker
+    className="marker"
     key={poi.id}
     longitude={poi.location.lng}
     latitude={poi.location.lat}
     >
-    <div>Test</div>
     </Marker>)
 return (
       <MapGL
