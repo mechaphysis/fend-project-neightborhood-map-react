@@ -9,7 +9,7 @@ const MAPSTYLE = config.styleURL
 const navStyle = {
   position: 'absolute',
   top: 0,
-  right: 10,
+  right: 0,
   padding: '10px'
 };
 
@@ -43,7 +43,9 @@ return (
       <MapGL
         {...viewport}
         mapStyle={MAPSTYLE}
-        mapboxApiAccessToken={TOKEN}>
+        mapboxApiAccessToken={TOKEN}
+        onViewportChange={(viewport) => this.setState({viewport})}
+        >
         <div className="nav" style={navStyle}>
           <NavigationControl/>
           {markers}
