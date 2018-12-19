@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MapGL, {Marker, NavigationControl} from 'react-map-gl';
+import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
 
 import {config} from '../utils/mapboxConfig'
 
@@ -9,7 +9,7 @@ const MAPSTYLE = config.styleURL
 const navStyle = {
   position: 'absolute',
   top: 0,
-  left: 0,
+  right: 10,
   padding: '10px'
 };
 
@@ -28,6 +28,7 @@ constructor(props) {
       }
     };
   }
+
 render() {
     const {viewport} = this.state;
     console.log('-> props: ', this.props)
