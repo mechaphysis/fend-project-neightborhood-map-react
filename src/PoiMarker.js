@@ -58,5 +58,4 @@ class PoiMarker extends Component {
   }
 }
 
-            // <p>{this.props.tips.groups.items.text}</p>
 export default PoiMarker
