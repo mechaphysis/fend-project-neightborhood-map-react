@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
-
+import MarkerPin from "./MarkerPin"
 import {config} from '../utils/mapboxConfig'
 
 const TOKEN = config.token;
@@ -29,16 +29,19 @@ constructor(props) {
     };
   }
 
+renderMarker = (poi, index) => {
+    return (
+      <Marker 
+      key={`marker-${index}`} 
+      longitude={poi.location.lng} 
+      latitude={poi.location.lat}>
+        <MarkerPin size={20} />
+      </Marker>
+    );
+}
 render() {
     const {viewport} = this.state;
-    console.log('-> props: ', this.props)
-    const markers = this.props.pois.map( poi => <Marker
-    className="marker"
-    key={poi.id}
-    longitude={poi.location.lng}
-    latitude={poi.location.lat}
-    >
-    </Marker>)
+
 return (
       <MapGL
         {...viewport}
@@ -46,9 +49,9 @@ return (
         mapboxApiAccessToken={TOKEN}
         onViewportChange={(viewport) => this.setState({viewport})}
         >
+          {this.props.pois.map(this.renderMarker)}
         <div className="nav" style={navStyle}>
           <NavigationControl/>
-          {markers}
         </div>
       </MapGL>
     );
