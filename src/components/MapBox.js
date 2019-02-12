@@ -35,13 +35,36 @@ renderMarker = (poi, index) => {
       key={`marker-${index}`} 
       longitude={poi.location.lng} 
       latitude={poi.location.lat}>
-        <MarkerPin size={20} />
+        <MarkerPin size={20} onClick={(event) =>
+        this.props.handleItemClick(event,poi.location,poi.id)}/>
       </Marker>
     );
 }
+
+renderPopup = () => {
+  console.log('--> props for renderPopup: ', this.props)
+  return (
+    this.props.infoWindowId === this.props.poiId && <Popup className="infoWindow" onCloseClick={this.props.onToggleOpen}>
+    <div className="infoWindow-content">
+      <h3>{this.props.name}</h3>
+      <p>{this.props.address}</p>
+      <p>{this.props.city} {this.props.state} {this.props.country}</p>
+      {(this.props.venueDetails !== undefined && this.props.venueDetails.bestPhoto) &&
+      <img className="poi-img"
+           alt={'A picture of '+this.props.name}
+           src={this.props.venueDetails.bestPhoto.prefix+
+                this.props.venueDetails.bestPhoto.width+
+                'x'+
+                this.props.venueDetails.bestPhoto.height+
+              this.props.venueDetails.bestPhoto.suffix} />
+      }
+    </div>
+    </Popup>
+  )
+}
 render() {
     const {viewport} = this.state;
-
+  console.log('---> print props: ', this.props)
 return (
       <MapGL
         {...viewport}
@@ -50,6 +73,7 @@ return (
         onViewportChange={(viewport) => this.setState({viewport})}
         >
           {this.props.pois.map(this.renderMarker)}
+          {this.renderPopup()}
         <div className="nav" style={navStyle}>
           <NavigationControl/>
         </div>
