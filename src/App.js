@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import hamburguer from './hamburguer-icon.svg'
-import './App.css';
+import './App.scss';
 import MapBox from "./components/MapBox"
 import Search from './Search.js'
 import * as DataAPI from './DataAPI'
@@ -141,6 +141,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <button className="btn">test button</button>
           <img
           tabIndex="0"
           onClick={this.openSearch}
