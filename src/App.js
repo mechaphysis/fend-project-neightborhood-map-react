@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
-import hamburguer from './hamburguer-icon.svg'
 import './App.scss';
 import MapBox from "./components/MapBox"
 import Search from './Search.js'
 import * as DataAPI from './DataAPI'
+import Header from "./components/Header"
 
 
 /* The method .gm_authFailure below handles error in API key
@@ -140,15 +140,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <button className="btn">test button</button>
-          <img
-          tabIndex="0"
-          onClick={this.openSearch}
-          onKeyPress={(e) => { e.key === 'Enter' && this.openSearch() }}
-          src={hamburguer} className="App-logo" alt="logo" />
-          <h1 className="App-title">Local Sightseeing Map</h1>
-        </header>
+        <Header></Header>
         <main className="main-content">
             <Search
               pois={this.state.pois}
