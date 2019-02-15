@@ -84,23 +84,6 @@ class App extends Component {
   * the marker area
   */
 
-
-
-/* The function below will toggle the open class for showing/hiding the
- * list of places and filter functionality by clicking hamburguer menu
- * It will also change the aria-hidden value for true or false
- * by changing filterHidden
- */
-  openSearch = () => {
-    let searchMenu = document.getElementsByClassName('search-poi')
-    searchMenu[0].classList.toggle('open')
-    if (this.state.filterHidden === "true") {
-      this.setState({filterHidden: "false"})
-    } else {
-      this.setState({filterHidden: "true"})
-    }
-  }
-
   /* Logic for query and filtering:
    * We gonna need a query inside our state for updating
    * the filtering results:
