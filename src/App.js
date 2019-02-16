@@ -6,6 +6,7 @@ import MapBox from "./components/MapBox"
 import Search from './Search.js'
 import * as DataAPI from './DataAPI'
 import Header from "./components/Header"
+import Footer from './components/Footer';
 
 
 /* The method .gm_authFailure below handles error in API key
@@ -120,10 +121,25 @@ class App extends Component {
     this.state.filteredPois.sort(sortBy('name'))
   }
 
+      /* The function below will toggle the open class for showing/hiding the
+    * list of places and filter functionality by clicking hamburguer menu
+    * It will also change the aria-hidden value for true or false
+    * by changing filterHidden
+    */
+    openSearch = () => {
+      let searchMenu = document.getElementsByClassName('search-poi')
+      searchMenu[0].classList.toggle('open')
+      if (this.state.filterHidden === "true") {
+      this.setState({filterHidden: "false"})
+      } else {
+      this.setState({filterHidden: "true"})
+      }
+    }
+
   render() {
     return (
       <div className="App">
-        <Header></Header>
+        <Header openSearch={this.openSearch}></Header>
         <main className="main-content">
             <Search
               pois={this.state.pois}
@@ -134,20 +150,18 @@ class App extends Component {
               handleItemClick={this.handleItemClick}
               filterHidden={this.state.filterHidden}
             />
-            <MapBox 
-            pois={ this.state.filteredPois } 
-            handleItemClick={this.handleItemClick}
-            poiId={this.state.poiId}
-            infoWindowId={this.state.infoWindowId}
-            venueDetails={this.state.venueDetails}
-           />
+            <div className="off-canvas-content">
+              <MapBox 
+              pois={ this.state.filteredPois } 
+              handleItemClick={this.handleItemClick}
+              poiId={this.state.poiId}
+              infoWindowId={this.state.infoWindowId}
+              venueDetails={this.state.venueDetails}
+            />
+            </div>
+
         </main>
-        <footer className="footer">
-        <p className="footer-details">
-    This Web-App was developed by <a href="https://github.com/mechaphysis">@mechaphysis</a> as the Capstone Project for Udacity Front End NanoDegree.
-    Information about the locations is provided by <a href="https://developer.foursquare.com/">FourSquare API</a>.
-  </p>
-</footer>
+      <Footer></Footer>
       </div>
     );
   }
