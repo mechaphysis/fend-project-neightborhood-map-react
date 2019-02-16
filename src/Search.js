@@ -15,7 +15,6 @@ class Search extends Component {
       "off-canvas-sidebar active"  
     
     return (
-      <div className="off-canvas canvas-sidebar-show">
       <div id="sidebar-id" className={canvasClasses}
       aria-hidden={this.props.filterHidden}>
         <div className="nav nav-custom">
@@ -54,9 +53,6 @@ class Search extends Component {
           }
           </ol>      
           </div>
-
-      <a className="off-canvas-overlay" href="#close"></a>    
-    </div>
     );
   }
 }

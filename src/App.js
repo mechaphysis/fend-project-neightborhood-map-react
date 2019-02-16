@@ -140,7 +140,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header openSearch={this.openSearch}></Header>
-        <main className="main-content">
+        <main className="off-canvas canvas-sidebar-show">
             <Search
               pois={this.state.pois}
               filteredPois={this.state.filteredPois}
@@ -150,6 +150,7 @@ class App extends Component {
               handleItemClick={this.handleItemClick}
               filterHidden={this.state.filterHidden}
             />
+            <a className="off-canvas-overlay" href="#close"></a>    
             <div className="off-canvas-content">
               <MapBox 
               pois={ this.state.filteredPois } 
@@ -158,10 +159,10 @@ class App extends Component {
               infoWindowId={this.state.infoWindowId}
               venueDetails={this.state.venueDetails}
             />
+            <Footer></Footer>
             </div>
 
         </main>
-      <Footer></Footer>
       </div>
     );
   }
