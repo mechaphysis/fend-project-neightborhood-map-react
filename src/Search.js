@@ -18,23 +18,27 @@ class Search extends Component {
       <div className="off-canvas canvas-sidebar-show">
       <div id="sidebar-id" className={canvasClasses}
       aria-hidden={this.props.filterHidden}>
-      >
-        <input
-          className="form-input"
-          type="text"
-          role="search"
-          aria-label="search"
-          tabIndex="0"
-          placeholder="Filter Points Of Interest by name"
-          value={this.props.query}
-          onChange={(event) => this.updateQuery(event.target.value)}
-          />
-          {this.props.filteredPois.length !== this.props.pois.length && (
-            <div className=''>
-              <span>Now showing {this.props.filteredPois.length} of {this.props.pois.length} total</span>
-            </div>
-          )}
-          <ol className="menu nav-custom"
+        <div className="nav nav-custom">
+          <form className="from-group">
+            <input
+              className="form-input search-custom"
+              type="text"
+              role="search"
+              aria-label="search"
+              tabIndex="0"
+              placeholder="Filter Points Of Interest by name"
+              value={this.props.query}
+              onChange={(event) => this.updateQuery(event.target.value)}
+              />
+              {this.props.filteredPois.length !== this.props.pois.length && (
+              <div className=''>
+                <span>Now showing {this.props.filteredPois.length} of {this.props.pois.length} total</span>
+              </div>
+            )}
+          </form>
+        </div>
+
+          <ol className="nav nav-custom"
               tabIndex="-1"
               >
             {this.props.filteredPois.map(poi => (
@@ -43,7 +47,7 @@ class Search extends Component {
               onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id)}
               onKeyPress={(event) => { event.key === 'Enter' && this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id) }}
               key={poi.id}
-              className="menu-item">
+              className="nav-item">
                <a>{poi.name}</a>
               </li>
             ))
