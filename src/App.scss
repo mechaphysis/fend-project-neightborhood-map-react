@@ -1,99 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 50px;
-  float: left;
-}
-
-.App-logo svg {
-  fill: #49b293;
-}
-
-.App-header {
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-/* Styles for the Search part: */
-/* Took as reference the basic off-canvas implementation from W3 Schools:
-  https://www.w3schools.com/howto/howto_js_off-canvas.asp
-*/
-.search-poi {
-  background-color: #222;
-  height: 100%;
-  width: 0px; /*We change the width by toggling .open*/
-  z-index: 1; /*we set its position to be on top*/
-  position: fixed;
-  overflow: scroll; /*We add horizontal scroll for the whole list*/
-  transition: 0.5s; /* We add a little transition effect for the search sliding*/
-}
-
-.search-poi.open {
-  width: 300px;
-}
-
-ol {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 300px;
-  color: white;
-  background-color: #222;
-}
-
-.search-poi input {
-  width: 100%;
-  font-size: 1.2em;
-}
-
-.showing-pois {
-  padding-top: 1em;
-  font-size: 0.8em;
-  color: grey;
-}
-
-.footer {
-  background-color: #222;
-}
-
-.footer-details {
-  font-size: 0.7em;
-  color: white;
-  background-color: #222;
-  padding: 20px;
-  margin: 0;
-}
-
-a {
-  color: white;
-  font-weight: bold;
-}
-
-.infoWindow-content {
-  margin: 0;
-  padding:0;
-}
-
-.poi-img {
-  width: 10em;
-  height: 10em;
-  border-style: solid;
-  border-width: thin;
-  border-color: grey;
-}
-
 .marker {
   background-image: url('./assets/mapbox-icon.png');
   background-size: cover;
@@ -112,4 +16,8 @@ a {
   right: 0;
   top: 0;
   z-index: 100;
+}
+
+.nav-custom {
+  padding: .5rem 1.5rem
 }

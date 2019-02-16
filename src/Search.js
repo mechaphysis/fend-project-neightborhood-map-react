@@ -10,10 +10,17 @@ class Search extends Component {
   }
 
   render () {
+    let canvasClasses = this.props.hidden ? 
+      "off-canvas-sidebar": 
+      "off-canvas-sidebar active"  
+    
     return (
-      <div className="search-poi"
-          aria-hidden={this.props.filterHidden}>
+      <div className="off-canvas canvas-sidebar-show">
+      <div id="sidebar-id" className={canvasClasses}
+      aria-hidden={this.props.filterHidden}>
+      >
         <input
+          className="form-input"
           type="text"
           role="search"
           aria-label="search"
@@ -23,11 +30,11 @@ class Search extends Component {
           onChange={(event) => this.updateQuery(event.target.value)}
           />
           {this.props.filteredPois.length !== this.props.pois.length && (
-            <div className='showing-pois'>
+            <div className=''>
               <span>Now showing {this.props.filteredPois.length} of {this.props.pois.length} total</span>
             </div>
           )}
-          <ol className="poi-list"
+          <ol className="menu nav-custom"
               tabIndex="-1"
               >
             {this.props.filteredPois.map(poi => (
@@ -36,13 +43,16 @@ class Search extends Component {
               onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id)}
               onKeyPress={(event) => { event.key === 'Enter' && this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id) }}
               key={poi.id}
-              className="poi-list-item">
-               <p>{poi.name}</p>
+              className="menu-item">
+               <a>{poi.name}</a>
               </li>
             ))
           }
-          </ol>
-      </div>
+          </ol>      
+          </div>
+
+      <a className="off-canvas-overlay" href="#close"></a>    
+    </div>
     );
   }
 }
