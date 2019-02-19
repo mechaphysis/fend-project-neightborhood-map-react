@@ -15,44 +15,49 @@ class Search extends Component {
       "off-canvas-sidebar active"  
     
     return (
-      <div id="sidebar-id" className={canvasClasses}
-      aria-hidden={this.props.filterHidden}>
-        <div className="nav nav-custom">
-          <form className="from-group">
-            <input
-              className="form-input search-custom"
-              type="text"
-              role="search"
-              aria-label="search"
-              tabIndex="0"
-              placeholder="Filter Points Of Interest by name"
-              value={this.props.query}
-              onChange={(event) => this.updateQuery(event.target.value)}
-              />
-              {this.props.filteredPois.length !== this.props.pois.length && (
-              <div className=''>
-                <span>Now showing {this.props.filteredPois.length} of {this.props.pois.length} total</span>
-              </div>
-            )}
-          </form>
-        </div>
+      <div id="sidebar-id" className={canvasClasses + " nav-custom"}
+        aria-hidden={this.props.filterHidden}>
+          <div class="form-autocomplete">
+            <div class="form-autocomplete-input form-input">
+              <input 
+                class="form-input" 
+                type="text" 
+                placeholder="typing here"
+                role="search"
+                aria-label="search"
+                tabIndex="0"
+                placeholder="Filter Points Of Interest by name"
+                value={this.props.query}
+                onChange={(event) => this.updateQuery(event.target.value)}
+                />
+            </div>
 
-          <ol className="nav nav-custom"
-              tabIndex="-1"
-              >
-            {this.props.filteredPois.map(poi => (
+            <ul class="menu menu-custom">
+  {this.props.filteredPois.map(poi => (
               <li
               tabIndex="0"
               onClick={(event) => this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id)}
               onKeyPress={(event) => { event.key === 'Enter' && this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id) }}
               key={poi.id}
-              className="nav-item">
-               <a>{poi.name}</a>
+              className="menu-item padding-custom">
+               <a href="#" className="padding-custom">
+               <div class="tile tile-centered">
+                <div class="tile-icon text-primary">
+                  <i class="icon icon-location"/>
+
+                </div>
+                <div class="tile-content text-7x">
+                  {poi.name}
+                </div>
+              </div>
+               
+               </a>
               </li>
             ))
           }
-          </ol>      
+          </ul>
           </div>
+      </div>
     );
   }
 }
