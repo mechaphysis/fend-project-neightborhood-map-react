@@ -36,7 +36,7 @@ renderMarker = (poi, index) => {
       longitude={poi.location.lng} 
       latitude={poi.location.lat}>
         <MarkerPin size={20} onClick={(event) =>
-        this.props.handleItemClick(event,poi.location,poi.id)}/>
+        this.props.handleItemClick(event.poi.location.poi.id)}/>
       </Marker>
     );
 }
