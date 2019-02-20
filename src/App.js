@@ -33,7 +33,7 @@ class App extends Component {
     zoom: 13,
     query : '',
     filteredPois: [],
-    filterHidden: "true",
+    filterHidden: true,
     venueDetails: []
   }
 
@@ -128,13 +128,15 @@ class App extends Component {
     */
     openSearch = () => {
       let searchMenu = document.getElementsByClassName('search-poi')
-      searchMenu[0].classList.toggle('open')
-      if (this.state.filterHidden === "true") {
-      this.setState({filterHidden: "false"})
+      searchMenu[0].classList.toggle('active')
+      if (this.state.filterHidden === true) {
+      this.setState({filterHidden: false})
       } else {
-      this.setState({filterHidden: "true"})
+      this.setState({filterHidden: true})
       }
     }
+
+    closeSideBar = () => this.setState({filterHidden: true})
 
   render() {
     return (
@@ -150,9 +152,9 @@ class App extends Component {
               handleItemClick={this.handleItemClick}
               filterHidden={this.state.filterHidden}
             />
-            <a className="off-canvas-overlay" href="#close"></a>    
+            <div className="off-canvas-overlay" onClick={this.closeSideBar}></div>
             <div className="off-canvas-content">
-              <MapBox 
+              <MapBox
               pois={ this.state.filteredPois } 
               handleItemClick={this.handleItemClick}
               poiId={this.state.poiId}
@@ -161,7 +163,6 @@ class App extends Component {
             />
             <Footer></Footer>
             </div>
-
         </main>
       </div>
     );
