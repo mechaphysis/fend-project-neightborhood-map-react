@@ -10,7 +10,7 @@ const navStyle = {
   position: 'absolute',
   top: 0,
   right: 0,
-  padding: '10px'
+  padding: '100px 10px'
 };
 
 export default class Map extends Component {
@@ -22,13 +22,14 @@ constructor(props) {
         longitude: -8.7207268,
         zoom: 10,
         bearing: 0,
-        pitch: 0,
-        width: '100%',
-        height: 500,
+        pitch: 0
       }
     };
   }
 
+  updateViewport = viewport => {
+    this.setState({viewport});
+  };
 renderMarker = (poi, index) => {
     return (
       <Marker 
@@ -42,7 +43,6 @@ renderMarker = (poi, index) => {
 }
 
 renderPopup = () => {
-  console.log('--> props for renderPopup: ', this.props)
   return (
     this.props.infoWindowId === this.props.poiId && <Popup className="infoWindow" onCloseClick={this.props.onToggleOpen}>
     <div className="infoWindow-content">
@@ -64,13 +64,14 @@ renderPopup = () => {
 }
 render() {
     const {viewport} = this.state;
-  console.log('---> print props: ', this.props)
 return (
       <MapGL
         {...viewport}
+        onViewportChange={this.updateViewport}
+        width="100%"
+        height="610px"
         mapStyle={MAPSTYLE}
         mapboxApiAccessToken={TOKEN}
-        onViewportChange={(viewport) => this.setState({viewport})}
         >
           {this.props.pois.map(this.renderMarker)}
           {this.renderPopup()}
