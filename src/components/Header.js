@@ -1,5 +1,4 @@
 import React, {Fragment, Component} from 'react'
-import hamburguer from '../hamburguer-icon.svg'
 
 export class Header extends Component {
 
@@ -8,20 +7,19 @@ export class Header extends Component {
             <Fragment>
             <header className="navbar navbar-custom">
                 <section className="navbar-section">
-                <a className="off-canvas-toggle btn btn-link btn-action" href="#sidebar">
+                <button className="off-canvas-toggle btn btn-link btn-action ml-2">
                     <i 
                         className="icon icon-menu"
                         tabIndex="0"
                         onClick={this.props.openSearch}
                         onKeyPress={(e) => { e.key === 'Enter' && this.openSearch() }}
                     />
-                </a>
+                </button>
                 </section>
                 <section className="navbar-center">
-                    <p href="..." className="navbar-brand text-bold mr-2">Local Sightseeing Map</p>
                 </section>
                 <section className="navbar-section">
-                    <a href="#" className="btn btn-link">GitHub</a>
+                    <a href="#" className="btn btn-link mr-2">GitHub</a>
                 </section>
             </header>
         </Fragment>
