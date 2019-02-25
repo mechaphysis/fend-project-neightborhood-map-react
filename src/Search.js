@@ -10,23 +10,26 @@ class Search extends Component {
   }
 
   render () {
-    let canvasClasses = this.props.hidden ? 
+    let canvasClasses = this.props.filterHidden ? 
       "off-canvas-sidebar": 
       "off-canvas-sidebar active"  
     
     return (
-      <div id="sidebar-id" className={canvasClasses + " nav-custom"}
+      <div id="sidebar-id" className={canvasClasses + " search-poi nav-custom padding-none"}
         aria-hidden={this.props.filterHidden}>
+          <div className="app-brand">
+            <h5 className="text-bold text-primary text-uppercase app-title">Local SightSeeing</h5>
+            <small className="label label-secondary text-bold">MAP</small>
+          </div>
           <div className="form-autocomplete">
             <div className="form-autocomplete-input form-input">
               <input 
-                className="form-input" 
+                className="form-input text-7x" 
                 type="text" 
-                placeholder="typing here"
                 role="search"
                 aria-label="search"
                 tabIndex="0"
-                placeholder="Filter Points Of Interest by name"
+                placeholder="Start Typing..."
                 value={this.props.query}
                 onChange={(event) => this.updateQuery(event.target.value)}
                 />
