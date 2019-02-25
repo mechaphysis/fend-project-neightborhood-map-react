@@ -43,7 +43,7 @@ class Search extends Component {
               onKeyPress={(event) => { event.key === 'Enter' && this.props.handleItemClick(event,{lat: poi.location.lat, lng: poi.location.lng}, poi.id) }}
               key={poi.id}
               className="menu-item">
-               <a href="#" >
+               <a href="" >
                <div className="tile tile-centered">
                 <div className="tile-icon text-primary">
                   <i className="icon icon-location"/>

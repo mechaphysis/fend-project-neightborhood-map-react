@@ -19,7 +19,7 @@ export class Header extends Component {
                 <section className="navbar-center">
                 </section>
                 <section className="navbar-section">
-                    <a href="#" className="btn btn-link mr-2">GitHub</a>
+                    <a className="btn btn-link mr-2" href="https://github.com/mechaphysis">GitHub</a>
                 </section>
             </header>
         </Fragment>
