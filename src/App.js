@@ -8,16 +8,6 @@ import * as DataAPI from './DataAPI'
 import Header from "./components/Header"
 import Footer from './components/Footer';
 
-
-/* The method .gm_authFailure below handles error in API key
- * authentication for Google Maps API. It is necessary, otherwise
- * if the API key fails the user is left wondering what is happening with
- * the web app not loading:
- */
-window.gm_authFailure = function() {
-    alert("Google Maps API Key Authentication error! Try refreshing the page again.")
-}
-
 class App extends Component {
 /* inside the Parent state we gonna pass the array of POI (POI stands for Point of Interests)
  * retrieved using FourSquare API. We will store also which Marker has been clicked, the center of
@@ -28,7 +18,7 @@ class App extends Component {
  */
   state = {
     pois: [],
-    infoWindowId: -1,
+    infoWindowId: null,
     center: { lat: 42.24059889999999, lng: -8.7207268 },
     zoom: 13,
     query : '',
@@ -48,16 +38,17 @@ class App extends Component {
     DataAPI.fetchDetails(poiId).then(
       (data) => {
         this.setState({venueDetails: data.response.venue})
-        console.log(data.response.venue, "tips: ", data.response.venue.tips.groups)})
+        console.log("data response: ", data.response.venue, "tips: ", data.response.venue.tips.groups)})
         .catch(error => {
       window.alert("Error loading Venue Details from FourSquare API", error)
     })
   }
 
-  handleItemClick = (event, latLng,listItem) => {
+  handleItemClick = (event,listItem) => {
     console.log('--item click: ', listItem)
     this.setState({
       infoWindowId: listItem,
+      poiId: listItem
     })
   this.getPoiDetails(listItem)
   }
@@ -137,7 +128,7 @@ class App extends Component {
     }
 
     closeSideBar = () => this.setState({filterHidden: true})
-
+    onToggleOpen = () => this.setState({infoWindowId: null})
   render() {
     return (
       <div className="App">
@@ -160,6 +151,7 @@ class App extends Component {
               poiId={this.state.poiId}
               infoWindowId={this.state.infoWindowId}
               venueDetails={this.state.venueDetails}
+              onToggleOpen={this.onToggleOpen}
             />
             <Footer></Footer>
             </div>
