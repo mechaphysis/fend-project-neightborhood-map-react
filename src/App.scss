@@ -1,3 +1,11 @@
+//Imports:
+
+$primary-color: #00aaff;
+
+@import "../node_modules/spectre.css/src/spectre.scss";
+@import "../node_modules/spectre.css/src/spectre-icons.scss";
+@import "../node_modules/spectre.css/src/spectre-exp.scss";
+
 .marker {
   background-image: url('./assets/mapbox-icon.png');
   background-size: cover;
