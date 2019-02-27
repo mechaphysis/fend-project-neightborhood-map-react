@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
 import MarkerPin from "./MarkerPin"
+import InfoContent from "./InfoContent"
 import {config} from '../utils/mapboxConfig'
 
 const TOKEN = config.token;
@@ -23,45 +24,54 @@ constructor(props) {
         zoom: 10,
         bearing: 0,
         pitch: 0
-      }
+      },
+      poiInfo: null
     };
   }
 
   updateViewport = viewport => {
     this.setState({viewport});
   };
-renderMarker = (poi, index) => {
+
+  renderMarker = (poi, index) => {
     return (
-      <Marker 
+      <Marker
       key={`marker-${index}`} 
       longitude={poi.location.lng} 
       latitude={poi.location.lat}>
-        <MarkerPin size={20} onClick={(event) =>
-        this.props.handleItemClick(event.poi.location.poi.id)}/>
+        <MarkerPin size={20} onClick={(event) => {
+          this.props.handleItemClick(event, poi.id)
+          this.setState({poiInfo: poi})
+        }
+        }/>
       </Marker>
     );
 }
 
-renderPopup = () => {
+  renderPopup() {
+    console.log('---> print poiInfo; ', this.state.poiInfo)
+    console.log('---> infoWindowID: ', this.props.infoWindowId)
   return (
-    this.props.infoWindowId === this.props.poiId && <Popup className="infoWindow" onCloseClick={this.props.onToggleOpen}>
-    <div className="infoWindow-content">
-      <h3>{this.props.name}</h3>
-      <p>{this.props.address}</p>
-      <p>{this.props.city} {this.props.state} {this.props.country}</p>
-      {(this.props.venueDetails !== undefined && this.props.venueDetails.bestPhoto) &&
-      <img className="poi-img"
-           alt={'A picture of '+this.props.name}
-           src={this.props.venueDetails.bestPhoto.prefix+
-                this.props.venueDetails.bestPhoto.width+
-                'x'+
-                this.props.venueDetails.bestPhoto.height+
-              this.props.venueDetails.bestPhoto.suffix} />
-      }
-    </div>
-    </Popup>
-  )
+    this.props.infoWindowId === this.props.poiId && <Popup
+        tipSize={5}
+        anchor="top"
+        longitude={this.state.poiInfo.location.lng}
+        latitude={this.state.poiInfo.location.lat}
+        closeOnClick={false}
+        onClose={this.props.onToggleOpen}
+      >
+        <InfoContent 
+          name={this.state.poiInfo.name}
+          address={this.state.poiInfo.address}
+          city={this.state.poiInfo.city}
+          state={this.state.poiInfo.state}
+          country={this.state.poiInfo.country}
+          venueDetails={this.props.venueDetails}
+        ></InfoContent>
+      </Popup>
+  );
 }
+
 render() {
     const {viewport} = this.state;
 return (
@@ -69,7 +79,7 @@ return (
         {...viewport}
         onViewportChange={this.updateViewport}
         width="100%"
-        height="610px"
+        height="637px"
         mapStyle={MAPSTYLE}
         mapboxApiAccessToken={TOKEN}
         >
